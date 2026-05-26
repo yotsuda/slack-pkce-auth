@@ -111,6 +111,22 @@ public class TokenCacheTests : IDisposable
     }
 
     [Fact]
+    public void Save_OverwritesExistingAtomically()
+    {
+        var path = TempFile();
+        new TokenCache { AccessToken = "first", RefreshToken = "r1" }.Save(path);
+        new TokenCache { AccessToken = "second" }.Save(path);
+
+        var loaded = TokenCache.Load(path);
+        Assert.NotNull(loaded);
+        Assert.Equal("second", loaded!.AccessToken);
+        Assert.Null(loaded.RefreshToken); // 上書きで前回値が残らない
+
+        // 一時ファイルが残っていないこと
+        Assert.Empty(Directory.GetFiles(_tempDir, "*.tmp"));
+    }
+
+    [Fact]
     public void Save_OmitsNullProperties()
     {
         var path = TempFile();
