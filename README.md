@@ -146,12 +146,18 @@ Even if the relay page were compromised and stole the `code`, **without the `cod
 
 ## Hosting your own relay
 
-If you don't want to depend on `yotsuda.github.io`:
+This repo ships a workflow (`.github/workflows/pages.yml`) that publishes the `relay/` folder to GitHub Pages, so the relay is served at:
+
+```
+https://yotsuda.github.io/slack-pkce-auth/callback.html
+```
+
+To host your own copy instead of depending on `yotsuda.github.io`:
 
 1. Fork this repo
-2. Enable GitHub Pages on `main` / `relay/`
+2. **Settings → Pages → Build and deployment → Source: GitHub Actions** — the bundled workflow deploys `relay/` on every push to `master`
 3. Your relay URL becomes `https://<your-user>.github.io/slack-pkce-auth/callback.html`
-4. Register that URL in your Slack App
+4. Register that URL in your Slack App's **Redirect URLs**
 5. Run with `--redirect-url https://<your-user>.github.io/slack-pkce-auth/callback.html`
 
 `relay/callback.html` is a single static file with no dependencies (and it supports `--port` via `relay_port`).
