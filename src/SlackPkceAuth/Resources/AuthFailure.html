@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>slack-pkce-auth</title>
+    <style>
+        html, body { margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', 'Meiryo', sans-serif;
+            background: linear-gradient(135deg, #faf6f6 0%, #f2ecec 50%, #f8f0f0 100%);
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; overflow: hidden;
+        }
+        .notification-box {
+            position: relative;
+            background-color: #ffffff;
+            box-shadow: 0 8px 32px rgba(224, 30, 90, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+            border-radius: 16px; text-align: center; min-width: 380px;
+            overflow: hidden;
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .accent {
+            height: 4px;
+            background: linear-gradient(90deg, #e57373, #e01e5a, #ef9a9a);
+        }
+        .content { padding: 36px 44px 28px; }
+        .error-circle {
+            width: 64px; height: 64px; margin: 0 auto 20px;
+            background: linear-gradient(135deg, #e01e5a, #c4184e);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 16px rgba(224, 30, 90, 0.25);
+        }
+        .error-circle svg { width: 28px; height: 28px; }
+        h2 {
+            color: #1d1c1d; margin: 0 0 20px;
+            font-size: 1.3em; font-weight: 700; letter-spacing: -0.01em;
+        }
+        .error-detail {
+            color: #b71c1c; font-size: 0.9em;
+            background: linear-gradient(135deg, #fef2f2, #fde8e8);
+            border: 1px solid #f0d0d0;
+            border-radius: 8px; padding: 12px 18px; margin: 0 0 6px;
+            word-break: break-all; text-align: left;
+        }
+        .hint { color: #b0b0b0; font-size: 0.82em; margin-top: 24px; }
+        .footer {
+            border-top: 1px solid #f0f0f0;
+            padding: 12px 24px; text-align: right;
+        }
+        .footer a {
+            font-size: 0.75em; color: #ccc; text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer a:hover { color: #e01e5a; }
+    </style>
+</head>
+<body>
+    <div class='notification-box'>
+        <div class="accent"></div>
+        <div class="content">
+            <div class="error-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                </svg>
+            </div>
+            <h2>Authorization Failed</h2>
+            <p class="error-detail">{{ERROR_MESSAGE}}</p>
+            <p class="hint">Return to the terminal and try again.</p>
+        </div>
+        <div class="footer">
+            <a href="https://github.com/yotsuda/slack-pkce-cli" target="_blank" rel="noopener noreferrer">slack-pkce-auth v{{VERSION}}</a>
+        </div>
+    </div>
+</body>
+</html>

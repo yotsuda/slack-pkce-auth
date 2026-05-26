@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>SlackPkceAuth</RootNamespace>
+    <AssemblyName>slack-pkce-auth</AssemblyName>
+
+    <!-- dotnet tool packaging -->
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>slack-pkce-auth</ToolCommandName>
+    <PackageOutputPath>./nupkg</PackageOutputPath>
+
+    <PackageId>Yotsuda.SlackPkceAuth</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Yoshifumi Tsuda</Authors>
+    <Description>Acquire a Slack User Token (xoxp-) via OAuth 2.0 PKCE from any CLI. No backend required — uses a static GitHub Pages relay for the OAuth callback.</Description>
+    <PackageTags>slack;oauth;pkce;cli;dotnet-tool</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/yotsuda/slack-pkce-auth</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/yotsuda/slack-pkce-auth</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AuthSuccess.html" />
+    <EmbeddedResource Include="Resources\AuthFailure.html" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="SlackPkceAuth.Tests" />
+  </ItemGroup>
+
+</Project>

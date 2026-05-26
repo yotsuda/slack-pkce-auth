@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SlackPkceAuth/SlackPkceAuth.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/SlackPkceAuth.Tests/SlackPkceAuth.Tests.csproj" />
+  </Folder>
+</Solution>

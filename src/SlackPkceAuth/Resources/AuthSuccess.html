@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>slack-pkce-auth</title>
+    <style>
+        html, body { margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', 'Meiryo', sans-serif;
+            background: linear-gradient(135deg, #f8f6fa 0%, #ece8f0 50%, #e8f4f8 100%);
+            display: flex; justify-content: center; align-items: center;
+            height: 100vh; overflow: hidden;
+        }
+        .notification-box {
+            position: relative;
+            background-color: #ffffff;
+            box-shadow: 0 8px 32px rgba(74, 21, 75, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+            border-radius: 16px; text-align: center; min-width: 380px;
+            overflow: hidden;
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .accent {
+            height: 4px;
+            background: linear-gradient(90deg, #4a154b, #611f69, #36c5f0, #2eb67d);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        .content { padding: 36px 44px 28px; }
+        .check-circle {
+            width: 64px; height: 64px; margin: 0 auto 20px;
+            background: linear-gradient(135deg, #2eb67d, #27a06d);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 16px rgba(46, 182, 125, 0.3);
+            animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .check-circle svg { width: 30px; height: 30px; }
+        h2 {
+            color: #1d1c1d; margin: 0 0 16px;
+            font-size: 1.3em; font-weight: 700; letter-spacing: -0.01em;
+        }
+        p { color: #616061; line-height: 1.7; margin: 0 0 6px; font-size: 0.95em; }
+        .hint { color: #b0b0b0; font-size: 0.82em; margin-top: 24px; }
+        .footer {
+            border-top: 1px solid #f0f0f0;
+            padding: 12px 24px; text-align: right;
+        }
+        .footer a {
+            font-size: 0.75em; color: #ccc; text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer a:hover { color: #611f69; }
+    </style>
+</head>
+<body>
+    <div class='notification-box'>
+        <div class="accent"></div>
+        <div class="content">
+            <div class="check-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="4 12 10 18 20 6"/>
+                </svg>
+            </div>
+            <h2>Authorization Successful</h2>
+            <p>Token has been delivered to your CLI.</p>
+            <p class="hint">You can close this tab and return to the terminal.</p>
+        </div>
+        <div class="footer">
+            <a href="https://github.com/yotsuda/slack-pkce-cli" target="_blank" rel="noopener noreferrer">slack-pkce-auth v{{VERSION}}</a>
+        </div>
+    </div>
+</body>
+</html>
