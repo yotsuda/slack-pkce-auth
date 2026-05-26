@@ -1,3 +1,4 @@
+# Static relay page for the Slack OAuth PKCE callback.
 name: Deploy relay to GitHub Pages
 
 # Publishes the relay/ folder (the OAuth callback relay page) to GitHub Pages.
