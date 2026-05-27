@@ -30,7 +30,7 @@ This tool gives you a **durable** `xoxp-` user token (with optional refresh).
 ## Install
 
 ```sh
-dotnet tool install -g Yotsuda.SlackPkceAuth
+dotnet tool install -g yotsuda.SlackPkceAuth
 ```
 
 Or build from source:
@@ -39,7 +39,7 @@ Or build from source:
 git clone https://github.com/yotsuda/slack-pkce-auth
 cd slack-pkce-auth
 dotnet pack src/SlackPkceAuth -c Release
-dotnet tool install -g --add-source ./src/SlackPkceAuth/nupkg Yotsuda.SlackPkceAuth
+dotnet tool install -g --add-source ./src/SlackPkceAuth/nupkg yotsuda.SlackPkceAuth
 ```
 
 ## Setup (one-time, per Slack App)

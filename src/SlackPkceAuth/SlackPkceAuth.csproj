@@ -14,7 +14,7 @@
     <ToolCommandName>slack-pkce-auth</ToolCommandName>
     <PackageOutputPath>./nupkg</PackageOutputPath>
 
-    <PackageId>Yotsuda.SlackPkceAuth</PackageId>
+    <PackageId>yotsuda.SlackPkceAuth</PackageId>
     <Version>0.1.0</Version>
     <Authors>Yoshifumi Tsuda</Authors>
     <Description>Acquire a Slack User Token (xoxp-) via OAuth 2.0 PKCE from any CLI. No backend required — uses a static GitHub Pages relay for the OAuth callback.</Description>
